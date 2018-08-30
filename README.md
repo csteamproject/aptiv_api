@@ -76,6 +76,9 @@ The following is a set of guidelines for contributing to the Aptiv API are hoste
 
 ## Credits
 
+* Robert Dale
+* Xitlally Salmon
+* Victor Lozoya
 
 ## License
 
