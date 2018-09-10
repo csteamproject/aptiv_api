@@ -20,62 +20,107 @@ This is the api side of the Aptiv Inventory Management application and is the CR
 
 # Prerequisites
 
-Things you may want to cover:
+* Ruby version - **5.2.1**
+* Rails version - **2.5.1**
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* System dependencies<br>
+    - NodeJS<br>
+    - MySQL
+    - RVM `\curl -sSL https://get.rvm.io | bash` or rbenv (see Mac installation guide)
 
 
 # Installation
 These are a more detailed area of steps if the Get Started notes were not detailed enough.
 
-1. First open a terminal or command prompt in a folder you wish the project to be pulled down to from github.
-2. Then run the following command:
+First open a terminal or command prompt in a folder you wish the project to be pulled down to from github.
+ Then run the following command:
 
 ```
-git clone git clone https://github.com/csteamproject/aptiv_api.git
+git clone https://github.com/csteamproject/aptiv_api.git
 ```
 
 This should clone down the project if you have full access to it, if you do not then you have to ask the owner if you can have access to collaborate.
 
-3. After the project finishes cloning down inside your terminal or command prompt you can `cd aptivWebclient` so that you are within the cloned project. There you can run the following commands:
 
-```
-sudo gem install rails
-```
+####Linux
+You'll need to create a database.yml file under aptiv_api/config/ and connect to a local
+mySQL database. The database.yml configuration is as follows:
+```angular2html
+default: &default
+  adapter: mysql2
+  database: your_db_name
+  host: 127.0.0.1
+  username: root
+  password: 
+  socket: /tmp/mysql.sock
+  pool: 5
+  timeout: 5000
 
+development:
+  <<: *default
 ```
+This will create a database named your_db_name as a local database using **your** root
+password for mySQL. Once the database.yml file has been set up, run
+```angular2html
 bundle install
+rails db:create
+rails db:migrate
+```
+You should now be able to run the server with `rails s` and navigate to 0.0.0.0:3000 and
+you should see the rails welcome page. Validating passwords and users requires the master.key
+to continue this process.
+
+####Mac
+Install Homebrew if you haven't already:
+```angular2html
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+Next use homebrew to install rbenv (A ruby version manager for Mac)
+```angular2html
+brew update
+brew install rbenv ruby-build rbenv-gem-rehash
+```
 
-This should get all the packages not mentioned in the prerequisites and update any old packages that have fallen behind in age.
+Initialize rbenv by adding the following into your ~/.bashrc file
+```angular2html
+eval "$(rbenv init -)"
+```
 
+Run the following commands in your terminal to install Ruby
+```angular2html
+brew install rbenv ruby-build
 
---Output--
-NOT IMPLEMENTED YET
+# Add rbenv to bash so that it loads every time you open a terminal
+echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
+source ~/.bash_profile
+
+# Install Ruby
+rbenv install 2.5.1
+rbenv global 2.5.1
+ruby -v
+```
+
+Finally, install Rails with
+```angular2html
+gem install rails -v 5.2.1
+```
+
+To check your version of Rails and Ruby run the following commands in your terminal.
+```angular2html
+rails -v
+ruby -v
+```
+
+To finish setup, you'll need to grab the database.yml file listed under the Linux installation of this guide and configure
+your local database appropriately.
 
 # Usage
 
 ## Rails
 To create the database run this command:
 ```
-rake db:create
+rails db:create
 ```
 
 To run the rails server just run this command:
@@ -99,6 +144,18 @@ rails c
 ```
 * You can clear the console by pressing `ctrl` + `L`
 * You can exit the console by pressing `ctrl` +  `D`
+
+You can generate a scaffold using
+```angular2html
+rails generate scaffold <MODEL> <PARAMS>
+```
+You can also substitute scaffold with other commands like
+```angular2html
+rails g model user name:string
+rails g controller user index
+```
+
+and so on...
 
 ### Rails Issues And Errors
 
