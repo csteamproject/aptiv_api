@@ -160,8 +160,8 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
-  jwt
   devise
+  jwt
   listen (>= 3.0.5, < 3.2)
   mysql2
   puma (~> 3.11)
