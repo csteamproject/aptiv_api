@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  utag: MyString
+  cpu: 9.99
+  ram: 1
+  hdd: 1
+
+two:
+  utag: MyString
+  cpu: 9.99
+  ram: 1
+  hdd: 1
