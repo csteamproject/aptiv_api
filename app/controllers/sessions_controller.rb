@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
   skip_before_action :require_user
 
-  def create(headers = {})
-    @header = headers
+  def create
+    @username = request.headers["username"]
+    @password = request.headers["password"]
     # @user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
-    @user = User.find_by(headers['username'].try(:authenticate, params[headers['password']]))
+    @user = User.find_by(username: @username).try(:authenticate, @password)
     if @user
       token = JWT.encode({user_id: @user.id, authentication_date: Time.now}, Rails.application.credentials.secret_key_base)
       render json: {success: true, token: token}
