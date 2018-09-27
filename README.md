@@ -154,6 +154,10 @@ You can also substitute scaffold with other commands like
 rails g model user name:string
 rails g controller user index
 ```
+* In the rails console you can create a new User by typing the following command:
+```
+user = User.create(username: 'xxxxx', password: 'xxxxxx', password_confirmation: 'xxxxxx')
+```
 
 and so on...
 
