@@ -25,7 +25,7 @@ User.create!(username: 'zmorgan', password: 'abc444abc444', first_name: 'Zachary
 end
 
 (1..40).each do |i|
-  Item.find_or_create_by!(name: "AIRCAM III #{i}", price: 99.99, quantity: 1)
+  Item.find_or_create_by!(name: "AIRCAM III #{i}", price: 99.99, quantity: 1, location_id: 1)
   Item.find_or_create_by!(name: "Software #{i}", price: 49.99, quantity: 5)
 end
 
@@ -34,3 +34,6 @@ end
   Computer.find_or_create_by!(utag: "U5678#{i + 10}", cpu: '3.3', ram: '16', hdd: '500', item_id: i + 80)
 end
 
+(1..30).each do |i|
+  Location.create!(city: "city #{i}", region: "region #{i}", country: "#{i}", street: "12#{i} Fake Street", unit: "#{i}", address_code: "#{i}", building: "#{i}")
+end

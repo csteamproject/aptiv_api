@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_213606) do
+ActiveRecord::Schema.define(version: 2018_10_31_090235) do
 
   create_table "computers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "utag"
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 2018_10_23_213606) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_items_on_location_id"
+  end
+
+  create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "unit"
+    t.string "building"
+    t.string "street"
+    t.string "city"
+    t.string "region"
+    t.string "country"
+    t.string "address_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,6 +59,8 @@ ActiveRecord::Schema.define(version: 2018_10_23_213606) do
     t.string "first_name"
     t.string "last_name"
     t.bigint "role_id"
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["role_id"], name: "index_users_on_roles_id"
   end
 

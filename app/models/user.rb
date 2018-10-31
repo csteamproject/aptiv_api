@@ -3,6 +3,8 @@ class User < ApplicationRecord
   validates :username, presence: true
   belongs_to :role
 
+  has_one :location
+
   scope :role_name, -> { User.find_by(:id).includes(:role) }
 
 end
