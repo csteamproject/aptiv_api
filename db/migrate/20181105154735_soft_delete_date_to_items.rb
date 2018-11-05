@@ -1,0 +1,5 @@
+class SoftDeleteDateToItems < ActiveRecord::Migration[5.2]
+  def change
+    add_column :items, :item_delete_date, :date
+  end
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_090235) do
+ActiveRecord::Schema.define(version: 2018_11_05_182256) do
 
   create_table "computers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "utag"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 2018_10_31_090235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "location_id"
+    t.date "item_delete_date"
+    t.bigint "user_id"
     t.index ["location_id"], name: "index_items_on_location_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,4 +67,5 @@ ActiveRecord::Schema.define(version: 2018_10_31_090235) do
     t.index ["role_id"], name: "index_users_on_roles_id"
   end
 
+  add_foreign_key "items", "users"
 end
