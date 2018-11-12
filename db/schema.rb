@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_182256) do
+ActiveRecord::Schema.define(version: 2018_11_07_200947) do
+
+  create_table "checkouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "out"
+    t.date "in"
+    t.boolean "operable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "computers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "utag"
@@ -65,6 +73,14 @@ ActiveRecord::Schema.define(version: 2018_11_05_182256) do
     t.bigint "location_id"
     t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["role_id"], name: "index_users_on_roles_id"
+  end
+
+  create_table "warranties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "vendor_name"
+    t.string "purchase_order"
+    t.date "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "items", "users"
