@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_200947) do
+ActiveRecord::Schema.define(version: 2018_11_12_220955) do
 
   create_table "checkouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "out"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 2018_11_07_200947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "password_digest"
     t.string "username"
@@ -63,19 +69,11 @@ ActiveRecord::Schema.define(version: 2018_11_07_200947) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "role_id"
     t.bigint "location_id"
+    t.bigint "role_id"
     t.index ["location_id"], name: "index_users_on_location_id"
-    t.index ["role_id"], name: "index_users_on_roles_id"
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
-
-
-  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 
   create_table "warranties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "vendor_name"
@@ -86,4 +84,5 @@ ActiveRecord::Schema.define(version: 2018_11_07_200947) do
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "users", "roles"
 end
