@@ -56,12 +56,6 @@ ActiveRecord::Schema.define(version: 2018_11_07_200947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "password_digest"
     t.string "username"
@@ -74,6 +68,14 @@ ActiveRecord::Schema.define(version: 2018_11_07_200947) do
     t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["role_id"], name: "index_users_on_roles_id"
   end
+
+
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "warranties", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "vendor_name"
