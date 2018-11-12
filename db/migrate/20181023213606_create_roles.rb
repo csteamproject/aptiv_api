@@ -5,7 +5,6 @@ class CreateRoles < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_column :users, references :roles
-
   end
+  add_column :users, references :roles
 end
