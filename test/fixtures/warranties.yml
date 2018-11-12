@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vendor_name: MyString
+  purchase_order: MyString
+  start_date: 2018-11-07
+
+two:
+  vendor_name: MyString
+  purchase_order: MyString
+  start_date: 2018-11-07
