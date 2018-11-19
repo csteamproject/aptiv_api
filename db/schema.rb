@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_220955) do
+ActiveRecord::Schema.define(version: 2018_11_18_103657) do
 
   create_table "checkouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "out"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 2018_11_12_220955) do
     t.bigint "location_id"
     t.date "item_delete_date"
     t.bigint "user_id"
+    t.string "serial_number"
+    t.string "brand"
+    t.string "model"
+    t.boolean "checked_out"
     t.index ["location_id"], name: "index_items_on_location_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
