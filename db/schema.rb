@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2018_11_18_103657) do
     t.string "brand"
     t.string "model"
     t.boolean "checked_out"
+    t.bigint "checkout_user_id"
+    t.index ["checkout_user_id"], name: "fk_rails_d604c3b46c"
     t.index ["location_id"], name: "index_items_on_location_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -88,5 +90,6 @@ ActiveRecord::Schema.define(version: 2018_11_18_103657) do
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "checkout_user_id"
   add_foreign_key "users", "roles"
 end
