@@ -15,6 +15,7 @@ class CsvuploadsController < ApplicationController
     sql = "INSERT INTO items (name, price, quantity, location_id, item_delete_date, user_id, serial_number, brand, model, operable, checkout_user_id, created_at, updated_at) VALUES #{inserts.join(", ")}"
 
     ActiveRecord::Base.connection.execute(sql)
+    render json: {message: "File Uploaded!"}
 
   end
 
