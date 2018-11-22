@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_051458) do
     t.string "serial_number"
     t.string "brand"
     t.string "model"
-    t.boolean "checked_out"
+    t.boolean "operable"
     t.bigint "checkout_user_id"
     t.index ["checkout_user_id"], name: "fk_rails_d604c3b46c"
     t.index ["location_id"], name: "index_items_on_location_id"
