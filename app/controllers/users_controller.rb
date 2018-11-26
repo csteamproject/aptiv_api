@@ -21,16 +21,16 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /items/1
   def update
-    if @item.update(item_params)
-      render json: @item
+    if @user.update(item_params)
+      render json: @user
     else
-      render json: @item.errors, status: :unprocessable_entity
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /items/1
   def destroy
-    @item.destroy
+    @user.destroy
   end
 
   def user_params
