@@ -39,7 +39,7 @@ end
 end
 
 (1..10).each do |i|
-  Item.create!(name: "computer#{i}", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
+  Item.create!(name: "computer#{i}", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", checkout_user_id: 2, computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
 end
 
 (1..4).each do |i|
