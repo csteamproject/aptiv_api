@@ -39,5 +39,11 @@ end
 end
 
 (1..10).each do |i|
-  Item.create!(name: "computer#{i}", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
+  Item.create!(name: "computer#{i}", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
 end
+
+(1..4).each do |i|
+  Ticket.create!(title: "Won't Power On #{i}", status: "Open", priority: 1, description: "Computer does not power on when plugged in.", item_id: "#{83+i}")
+end
+
+
