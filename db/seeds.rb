@@ -29,17 +29,17 @@ User.create!(username: 'zmorgan', password: 'abc444abc444', first_name: 'Zachary
 end
 
 (1..20).each do |i|
-  Item.find_or_create_by!(name: "AIRCAM III #{i}", price: 99.99, quantity: 1, location_id: 1, user_id: 1)
-  Item.find_or_create_by!(name: "Software #{i}", price: 49.99, quantity: 5, location_id: 2, user_id: 2)
+  Item.find_or_create_by!(name: "Software Disc", price: 99.99, quantity: 1, location_id: 1, user_id: 1, serial_number: "WIN05BXVB00#{i}")
+  Item.find_or_create_by!(name: "Equipment", price: 49.99, quantity: 5, location_id: 2, user_id: 2, serial_number: "ETH05BV89V#{i}")
 end
 
 (20..40).each do |i|
-  Item.find_or_create_by!(name: "AIRCAM III #{i}", price: 99.99, quantity: 1, location_id: 3, user_id: 3)
-  Item.find_or_create_by!(name: "Software #{i}", price: 49.99, quantity: 5, location_id: 1, user_id: 4)
+  Item.find_or_create_by!(name: "Accessories", price: 99.99, quantity: 1, location_id: 3, user_id: 3, serial_number: "MON05HPXDC08#{i}")
+  Item.find_or_create_by!(name: "Computer Tower", price: 49.99, quantity: 5, location_id: 1, user_id: 4, serial_number: "GB05BXDC0VV0X#{i}")
 end
 
 (1..10).each do |i|
-  Item.create!(name: "computer#{i}", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
+  Item.create!(name: "Computer/Laptop", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
 end
 
 (1..4).each do |i|
