@@ -43,7 +43,7 @@ end
 end
 
 (1..4).each do |i|
-  Ticket.create!(title: "Won't Power On #{i}", status: "Open", priority: 1, description: "Computer does not power on when plugged in.", item_id: "#{83+i}")
+  Ticket.create!(title: "Won't Power On #{i}", status: "Open", priority: 1, description: "Computer does not power on when plugged in.", item_id: "#{52+i}")
 end
 
 
