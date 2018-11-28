@@ -38,12 +38,16 @@ end
   Item.find_or_create_by!(name: "Computer Tower", price: 49.99, quantity: 5, location_id: 1, user_id: 4, serial_number: "GB05BXDC0VV0X#{i}")
 end
 
-(1..10).each do |i|
+(1..6).each do |i|
   Item.create!(name: "Computer/Laptop", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
 end
 
 (1..4).each do |i|
-  Ticket.create!(title: "Won't Power On #{i}", status: "Open", priority: 1, description: "Computer does not power on when plugged in.", item_id: "#{52+i}")
+  Item.create!(name: "Computer/Laptop", price: 1799.99, quantity: 1, location_id: i % 3, user_id: 5, brand: "HP", model: "Revolve", serial_number: "HP05BXDC0016#{i}", checkout_user_id: 2, computer_attributes: {utag: "U5678#{i + 10}", cpu: 3.3, ram: 16, hdd: 500})
+end
+
+(1..4).each do |i|
+  Ticket.create!(title: "Won't Power On #{i}", status: "Open", priority: 1, description: "Computer does not power on when plugged in.", item_id: "#{88+i}")
 end
 
 
